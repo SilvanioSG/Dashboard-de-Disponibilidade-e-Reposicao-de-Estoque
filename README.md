@@ -130,13 +130,13 @@ Capa de navegação com identidade visual do projeto, contextualização analít
 ---
 
 ### Página 6 — Detalhamento
-* **Objetivo:** Exploração granular e apoio à exportação de dados operacionais.
+* **Objetivo:** Exploração granular e apoio operacionais.
 * **Análises Entregues:**
   * Tabela curada contendo as colunas estratégicas para ação rápida.
   * Formatação condicional em Status, Prioridade e Necessidade de Reposição.
   * Cards contextuais dinâmicos reativos aos filtros aplicados.
   * Slicers multidimensionais (Descrição, Status, Prioridade, Classe ABC, Faixa de Cobertura).
-  * *Drillthrough* configurado por Item para navegação aprofundada.
+  * Configurado para navegação aprofundada.
 
 ![Página 6 - Detalhamento](./pagina6.png)
 
