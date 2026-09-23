@@ -128,7 +128,6 @@ Capa de navegação com identidade visual do projeto, links diretos para todas a
 - Formatação condicional em Status, Prioridade e Necessidade de Reposição.
 - Cards contextuais no topo que reagem aos filtros da página.
 - Slicers por Descrição, Status, Prioridade, Classe ABC e Faixa de Cobertura.
-- Drillthrough configurado por Item, permitindo aprofundamento a partir de qualquer outra página.
 
 ![Página 6 - Detalhamento](./pagina6.png)
 
