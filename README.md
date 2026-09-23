@@ -1,211 +1,270 @@
 # Dashboard de Disponibilidade e Reposição de Estoque
 
-Dashboard analítico desenvolvido em Power BI para monitoramento da saúde do estoque, priorização de reposição e produção, análise de cobertura de pedidos e valorização por Curva ABC. O projeto foi construído a partir de uma base operacional de 100 itens, com foco em decisão executiva e operacional.
-
-**Autor:** Silvanio Gois — Gestor de Operações e Negócios Orientado a Dados
-
-**Links profissionais:**
-- Site: https://www.silvaniogois.com.br
-- LinkedIn: https://www.linkedin.com/in/silvanio-gois/
-- GitHub: https://github.com/SilvanioSG
-
-**Dashboard publicado:** https://app.powerbi.com/view?r=eyJrIjoiMjQwMThiOWQtNTgzMS00NWM2LTg0ODAtZDAzNDFjZjUzYjc4IiwidCI6IjJlYmQyYzU0LWY1ZDMtNGVmYi05ZGE3LWU4Yzk0YmQyMWQzOSJ9
+> **Solução analítica em Power BI para monitoramento da saúde do estoque, priorização de reposição e produção, análise de cobertura de pedidos e valorização financeira por Curva ABC.**
 
 ---
 
-## 1. Objetivo do projeto
-
-Construir uma solução analítica capaz de responder, em uma única experiência de navegação, às seguintes perguntas de negócio:
-
-1. Qual é a saúde geral do estoque?
-2. Quais itens estão em nível crítico, abaixo do mínimo ou acima do máximo?
-3. Quanto é necessário repor e qual a prioridade de reposição?
-4. Onde está concentrado o valor financeiro do estoque (Curva ABC)?
-5. Como as vendas com e sem carga impactam a cobertura de pedidos?
-6. É possível detalhar item a item para ação operacional?
-
-A entrega final contempla seis páginas analíticas, uma capa de navegação, uma base tratada, colunas calculadas, medidas DAX e storytelling executivo orientado a decisão.
+## Sumário
+- [Visão Geral](#visão-geral)
+- [Links do Projeto](#links-do-projeto)
+- [Objetivos de Negócio](#objetivos-de-negócio)
+- [Estrutura do Dashboard](#estrutura-do-dashboard)
+- [Metodologia Técnica](#metodologia-técnica)
+- [Insights da Base Analisada](#insights-da-base-analisada)
+- [Stack Técnica](#stack-técnica)
+- [Estrutura de Arquivos](#estrutura-de-arquivos)
+- [Competências Aplicadas](#competências-aplicadas)
+- [Como Reproduzir o Projeto](#como-reproduzir-o-projeto)
+- [Considerações Finais](#considerações-finais)
+- [Contato](#contato)
 
 ---
 
-## 2. Estrutura do dashboard
+## Visão Geral
 
-O relatório é composto por 7 páginas — uma de navegação e seis analíticas — sem redundância de visuais ou métricas entre elas. Cada página responde a uma pergunta específica e alimenta a próxima em uma sequência lógica de leitura.
+Desenvolvido a partir de uma base operacional com 100 itens, este dashboard atua como uma ferramenta centralizada para decisões operacionais e executivas. Ele elimina ruídos de leitura de dados e prioriza gargalos críticos na cadeia de suprimentos e produção.
+
+* **Autor:** Silvanio Gois (*Gestor de Operações e Negócios Orientado a Dados*)
+* **Escopo:** 100 itens operacionais
+* **Foco:** Decisão executiva e otimização operacional
+
+---
+
+## Links do Projeto
+
+| Recurso | Link |
+| :--- | :--- |
+| **Dashboard Interativo (Power BI)** | [Acessar Dashboard Publicado](https://app.powerbi.com/view?r=eyJrIjoiMjQwMThiOWQtNTgzMS00NWM2LTg0ODAtZDAzNDFjZjUzYjc4IiwidCI6IjJlYmQyYzU0LWY1ZDMtNGVmYi05ZGE3LWU4Yzk0YmQyMWQzOSJ9) |
+| **Website Profissional** | [silvaniogois.com.br](https://www.silvaniogois.com.br) |
+| **LinkedIn** | [linkedin.com/in/silvanio-gois](https://www.linkedin.com/in/silvanio-gois/) |
+| **GitHub** | [github.com/SilvanioSG](https://github.com/SilvanioSG) |
+
+---
+
+## Objetivos de Negócio
+
+A solução foi projetada para responder centralizadamente às seguintes questões táticas e estratégicas:
+
+1. **Saúde do Estoque:** Qual é a situação geral da disponibilidade dos itens?
+2. **Níveis de Alerta:** Quais itens estão críticos, abaixo do mínimo ou acima do máximo?
+3. **Priorização:** Quanto e o que deve ser reposto/produzido com urgência?
+4. **Impacto Financeiro:** Onde está concentrada a valorização financeira do estoque (Curva ABC)?
+5. **Cobertura Operacional:** Como as vendas com e sem carga afetam a cobertura de pedidos?
+6. **Ação Operacional:** Como detalhar item a item para execução na ponta?
+
+---
+
+## Estrutura do Dashboard
+
+O relatório conta com 7 páginas organizadas sequencialmente sem duplicidade de métricas ou visuais, em que cada tela alimenta a posterior em uma jornada lógica de navegação.
 
 ### Página 0 — Início
-
-Capa de navegação com identidade visual do projeto, links diretos para todas as páginas e resumo do contexto analítico. Funciona como ponto de entrada único para o usuário executivo.
+Capa de navegação com identidade visual do projeto, contextualização analítica e links diretos para cada área de análise.
 
 ![Página 0 - Início](./pagina0.png)
 
 ---
 
 ### Página 1 — Visão Executiva
-
-**Objetivo:** responder "Qual é a saúde geral do estoque?" em uma única tela.
-
-**Indicadores principais:** Total de Itens, Estoque Disponível Total, Necessidade de Reposição Total, Valor de Estoque Total, % de Itens Críticos, % de Demanda Coberta e Gap de Demanda.
-
-**Análises entregues:**
-- Distribuição de itens por status de estoque (donut).
-- Top 10 itens com maior necessidade de reposição (barras horizontais).
-- Valor de estoque por classe ABC (colunas).
-- Matriz cruzada entre Status de Estoque e Prioridade de Reposição, com quantidade de itens e necessidade total.
+* **Objetivo:** Responder "Qual é a saúde geral do estoque?" em uma única tela.
+* **KPIs Principais:** Total de Itens, Estoque Disponível Total, Necessidade de Reposição Total, Valor de Estoque Total, % de Itens Críticos, % de Demanda Coberta e Gap de Demanda.
+* **Análises Entregues:**
+  * Distribuição de itens por status de estoque (Donut).
+  * Top 10 itens com maior necessidade de reposição (Barras Horizontais).
+  * Valor de estoque por Classe ABC (Colunas).
+  * Matriz cruzada entre Status de Estoque vs. Prioridade de Reposição.
 
 ![Página 1 - Visão Executiva](./pagina1.png)
 
 ---
 
 ### Página 2 — Disponibilidade e Cobertura
-
-**Objetivo:** analisar cobertura, posicionamento do estoque frente aos reguladores mínimo e máximo e dias de estoque.
-
-**Indicadores principais:** Cobertura, Dias de Estoque Médio, % de Itens Abaixo do Mínimo, % de Itens Acima do Máximo.
-
-**Análises entregues:**
-- Dispersão entre Estoque Disponível e Regulador Mínimo, com cor por status.
-- Distribuição de itens por faixa de cobertura de pedidos.
-- Comparativo por item entre Estoque Disponível, Regulador Mínimo e Regulador Máximo.
-- Top 10 itens com menor cobertura.
+* **Objetivo:** Avaliar o posicionamento do estoque em relação aos reguladores operacionais e dias de cobertura.
+* **KPIs Principais:** Cobertura, Dias de Estoque Médio, % de Itens Abaixo do Mínimo, % de Itens Acima do Máximo.
+* **Análises Entregues:**
+  * Dispersão entre Estoque Disponível vs. Regulador Mínimo.
+  * Distribuição de itens por faixa de cobertura de pedidos.
+  * Comparativo por item entre Estoque Disponível, Regulador Mínimo e Máximo.
+  * Top 10 itens com menor cobertura.
 
 ![Página 2 - Disponibilidade e Cobertura](./pagina2.png)
 
 ---
 
 ### Página 3 — Reposição e Produção
-
-**Objetivo:** priorizar o que produzir ou comprar e identificar itens em excesso.
-
-**Indicadores principais:** Necessidade de Reposição Total, Excesso Total de Estoque, Quantidade de Itens Urgentes, Valor Total de Pedidos e Necessidade Líquida.
-
-**Análises entregues:**
-- Top 20 itens com maior necessidade de reposição.
-- Distribuição da necessidade de reposição por prioridade (treemap).
-- Tabela operacional com Item, Descrição, Estoque Disponível, Regulador Mínimo, Necessidade de Reposição e Valor de Pedidos.
+* **Objetivo:** Orientar planos de compra e ordens de produção, apontando também excessos.
+* **KPIs Principais:** Necessidade de Reposição Total, Excesso Total de Estoque, Quantidade de Itens Urgentes, Valor Total de Pedidos e Necessidade Líquida.
+* **Análises Entregues:**
+  * Top 20 itens com maior necessidade de reposição.
+  * Distribuição da necessidade de reposição por prioridade (Treemap).
+  * Tabela operacional detalhada com itens, reguladores e carteira de pedidos.
 
 ![Página 3 - Reposição e Produção](./pagina3.png)
 
 ---
 
 ### Página 4 — Valorização e Curva ABC
-
-**Objetivo:** entender onde está concentrado o valor financeiro do estoque e quais itens pertencem à Classe A.
-
-**Indicadores principais:** Valor Total do Estoque, Valor Total dos Pedidos, % do Valor da Classe A e Custo Unitário Médio.
-
-**Análises entregues:**
-- Diagrama de Pareto dos 20 itens de maior valor de estoque com curva de percentual acumulado.
-- Donut de participação do valor por Classe ABC.
-- Valor de estoque por status.
-- Matriz cruzada entre Classe ABC e Status de Estoque, com valor, quantidade e percentual de itens.
+* **Objetivo:** Mapear a concentração financeira do estoque e destacar os itens de maior representatividade (Classe A).
+* **KPIs Principais:** Valor Total do Estoque, Valor Total dos Pedidos, % do Valor da Classe A e Custo Unitário Médio.
+* **Análises Entregues:**
+  * Diagrama de Pareto dos 20 itens de maior valor com curva de acumulado.
+  * Donut da participação do valor por Classe ABC.
+  * Valor de estoque por status operacional.
+  * Matriz cruzada entre Classe ABC e Status de Estoque.
 
 ![Página 4 - Valorização e Curva ABC](./pagina4.png)
 
 ---
 
 ### Página 5 — Pedidos e Cargas
-
-**Objetivo:** comparar vendas com e sem carga e mensurar o impacto da produção na cobertura de pedidos.
-
-**Indicadores principais:** Vendas com Carga, Vendas sem Carga, Cobertura de Cargas com Produção, Cobertura de Cargas sem Produção e Cobertura Média de Pedidos.
-
-**Análises entregues:**
-- Dispersão entre Vendas com Carga e Vendas sem Carga, com tamanho proporcional ao valor de pedidos.
-- Série comparativa entre cobertura com e sem produção por item.
-- Top 10 itens com menor cobertura de pedidos.
-- Tabela de desempenho com vendas, coberturas e valor de pedidos.
+* **Objetivo:** Medir o comportamento de vendas com/sem carga e o impacto da produção na cobertura.
+* **KPIs Principais:** Vendas com Carga, Vendas sem Carga, Cobertura de Cargas com Produção, Cobertura de Cargas sem Produção e Cobertura Média de Pedidos.
+* **Análises Entregues:**
+  * Dispersão entre Vendas com Carga vs. Vendas sem Carga (tamanho proporcional ao valor de pedidos).
+  * Série comparativa de cobertura com e sem produção por item.
+  * Top 10 itens com menor cobertura de pedidos.
+  * Tabela de desempenho com vendas, coberturas e valor de pedidos.
 
 ![Página 5 - Pedidos e Cargas](./pagina5.png)
 
 ---
 
 ### Página 6 — Detalhamento
-
-**Objetivo:** exploração granular e operacional.
-
-**Análises entregues:**
-- Tabela curada com as colunas essenciais para ação: Item, Descrição, Status, Prioridade, Classe ABC, Estoque Físico, Estoque Disponível, Reguladores, Necessidade, Excesso, Cobertura, Valor de Estoque e Valor de Pedidos.
-- Formatação condicional em Status, Prioridade e Necessidade de Reposição.
-- Cards contextuais no topo que reagem aos filtros da página.
-- Slicers por Descrição, Status, Prioridade, Classe ABC e Faixa de Cobertura.
+* **Objetivo:** Exploração granular e apoio à exportação de dados operacionais.
+* **Análises Entregues:**
+  * Tabela curada contendo as colunas estratégicas para ação rápida.
+  * Formatação condicional em Status, Prioridade e Necessidade de Reposição.
+  * Cards contextuais dinâmicos reativos aos filtros aplicados.
+  * Slicers multidimensionais (Descrição, Status, Prioridade, Classe ABC, Faixa de Cobertura).
+  * *Drillthrough* configurado por Item para navegação aprofundada.
 
 ![Página 6 - Detalhamento](./pagina6.png)
 
 ---
 
-## 3. Metodologia técnica
+## Metodologia Técnica
 
-### 3.1 Tratamento de dados
+### 1. Tratamento de Dados (Power Query)
+* A base bruta `DisponibilidadeEstoque.xlsx` foi submetida a sanitização avançada:
+  * Promoção de cabeçalhos e tipagem explícita de colunas.
+  * Substituição de valores nulos por zero em campos numéricos.
+  * Criação da dimensão `dItem` via desduplicação de `Item` e `Descricao_do_Item`.
+  * Isolamento da tabela fato `fEstoque` mantendo granularidade de 1 registro por item.
 
-A base bruta `DisponibilidadeEstoque.xlsx` foi importada no Power Query e submetida às seguintes etapas de preparação:
+### 2. Modelagem de Dados
+* **Esquema Estrela (Star Schema):** Relacionamento $1:N$ entre `dItem` e `fEstoque`.
+* **Segregação:** Tabela dedicada `_Medidas` para centralização de todas as regras DAX.
 
-- Promoção de cabeçalho e tipagem explícita de colunas.
-- Substituição de valores nulos por zero nas colunas numéricas.
-- Criação de dimensão `dItem` a partir da desduplicação de `Item` e `Descricao_do_Item`.
-- Manutenção da tabela fato `fEstoque` com granularidade de um registro por item.
+### 3. Colunas Calculadas
+* **Validação:** `Estoque_Total`, `Estoque_Comprometido` e `Estoque_Disponivel_Calc`.
+* **Regras de Negócio:** `Status_Estoque` (4 faixas), `Prioridade_Reposicao` (4 níveis), `Necessidade_Reposicao` e `Excesso_Estoque`.
+* **Curva ABC & Categorização:** `Rank_Valor_Estoque`, `Valor_Acumulado_ABC`, `Percentual_Acumulado_ABC`, `Classe_ABC` e `Faixa_Cobertura_Pedidos`.
+* **Indexação:** Colunas de ordenação customizada (`Ordem_Status`, `Ordem_Faixa`, `Ordem_Prioridade`, `Ordem_Classe_ABC`).
 
-### 3.2 Modelagem
+### 4. Medidas DAX
+* **Volumetria e Saldo:** Total de itens, itens urgentes, saldos disponíveis e necessidades de reposição.
+* **Financeiro:** Valoração total do estoque, carteira de pedidos, custo médio e representatividade da Classe A.
+* **Qualidade e Cobertura:** Porcentagem de itens em faixas críticas e métricas de cobertura recalculadas.
+* **Pareto Dinâmico:** Acumulado de Curva ABC ajustado dinamicamente ao contexto de filtro ativo (*Top N* visível).
 
-Modelo em esquema estrela simplificado:
-
-- `fEstoque` (fato) — 1 linha por item.
-- `dItem` (dimensão) — relacionamento 1:N com `fEstoque`.
-- Tabela `_Medidas` dedicada ao armazenamento de todas as medidas DAX, isolando o cálculo da modelagem.
-
-### 3.3 Colunas calculadas
-
-Foram criadas colunas para enriquecer a análise sem onerar o modelo:
-
-- `Estoque_Total`, `Estoque_Comprometido` e `Estoque_Disponivel_Calc` para validação cruzada com a origem.
-- `Status_Estoque` com quatro faixas: Crítico-Negativo, Abaixo do Mínimo, Normal e Acima do Máximo.
-- `Prioridade_Reposicao` com quatro níveis: Urgente, Alta, Média e Baixa.
-- `Necessidade_Reposicao` e `Excesso_Estoque` calculados a partir dos reguladores.
-- `Faixa_Cobertura_Pedidos` com cinco faixas de cobertura.
-- `Rank_Valor_Estoque`, `Valor_Acumulado_ABC`, `Percentual_Acumulado_ABC` e `Classe_ABC` para construção da Curva ABC.
-- Colunas de ordenação (`Ordem_Status`, `Ordem_Faixa`, `Ordem_Prioridade`, `Ordem_Classe_ABC`) para garantir ordenação correta nos visuais.
-
-### 3.4 Medidas DAX
-
-As medidas foram organizadas em blocos funcionais:
-
-- **Volumetria:** Total de Itens, Quantidade de Itens Urgentes.
-- **Saldo:** Estoque Disponível Total, Necessidade de Reposição Total, Excesso Total.
-- **Financeiro:** Valor de Estoque Total, Valor de Pedidos Total, Custo Unitário Médio, % do Valor da Classe A.
-- **Cobertura:** Cobertura Real, Cobertura de Cargas com e sem Produção, Cobertura Média de Pedidos.
-- **Qualidade:** % de Itens Críticos, % de Itens Abaixo do Mínimo, % de Itens Acima do Máximo.
-- **Curva ABC dinâmica:** medida de acumulado recalculado sobre o Top N visível, garantindo que o Pareto reflita apenas os itens exibidos.
-
-### 3.5 Decisões analíticas relevantes
-
-- A coluna original `Produzir` foi descartada por ser redundante com `Estoque_Disponivel`; em seu lugar foi implementada a medida `Necessidade_Reposicao`, que respeita o Regulador Mínimo de cada item.
-- A métrica de cobertura foi reformulada. A razão direta entre `Estoque_Disponivel` e vendas gera valores negativos e de leitura ambígua, pois o saldo já desconta as vendas. A cobertura passou a ser calculada pela razão entre `Estoque_Total` e o volume vendido, resultando em percentual positivo e interpretável.
-- A Curva ABC foi construída por ranking de valor de estoque, com cortes em 80% (Classe A), 95% (Classe B) e 100% (Classe C).
-- A página de detalhamento foi curada para conter apenas as colunas com função decisória, evitando o efeito "planilha no Power BI".
+### 5. Decisões Analíticas Relevantes
+* **Substituição de Atributo Redundante:** A coluna original `Produzir` foi descontinuada por redundância. Foi implementada a medida `Necessidade_Reposicao`, alinhada ao regulador mínimo de cada item.
+* **Reformulação da Cobertura:** A razão direta entre estoque disponível e vendas gerava percentuais negativos. A métrica foi reestruturada para a relação $\frac{\text{Estoque Total}}{\text{Vendas}}$, permitindo interpretação percentual positiva e comparável.
+* **Parâmetros da Curva ABC:** Parâmetros de corte definidos em $80\%$ (Classe A), $95\%$ (Classe B) e $100\%$ (Classe C).
+* **Curadoria do Detalhamento:** Seleção estrita de atributos relevantes para evitar o formato de planilha dentro do dashboard.
 
 ---
 
-## 4. Insights extraídos da base
+## Insights da Base Analisada
 
-A análise dos 100 itens revelou um cenário de déficit sistêmico de estoque, com as seguintes leituras:
+A análise sobre os 100 itens diagnosticou um **déficit sistêmico de estoque**:
 
-- **74% dos itens estão em estado crítico-negativo**, ou seja, o saldo disponível é insuficiente para cobrir as vendas já comprometidas.
-- O **estoque disponível total é de -33.499 unidades**, enquanto a **necessidade de reposição soma 74.678 unidades**.
-- A **demanda coberta é de aproximadamente 67%**, indicando que um terço da demanda não possui lastro em estoque.
-- **Nenhum item está acima do máximo**, o que elimina a hipótese de excesso e reforça o diagnóstico de déficit.
-- A **Curva ABC é fortemente concentrada**: 48 itens (48% do total) respondem por 80% do valor de estoque, sendo classificados como Classe A. Cerca de 80% do valor financeiro está em itens que, em sua maioria, estão em estado crítico.
-- As **vendas com carga superam as vendas sem carga** em aproximadamente 17%, o que indica dependência operacional relevante do processo de carga para o escoamento.
-- O **valor total de pedidos é de R$ 13,5 milhões**, superando em mais de 50% o valor total de estoque (R$ 8,9 milhões), reforçando a pressão por reposição.
-
----
-
-## 5. Stack técnica
-
-- **Power BI Desktop** — modelagem, DAX e construção visual.
-- **Power Query (M)** — extração, limpeza e transformação.
-- **DAX** — colunas calculadas, medidas e inteligência de Curva ABC.
-- **Excel** — origem dos dados operacionais.
-- **PDF** — exportação do relatório para versionamento no repositório.
+* **Risco Operacional Elevado:** $74\%$ dos itens estão em nível **Crítico-Negativo** (saldo indisponível para cobrir pedidos já comprometidos).
+* **Déficit Físico:** Saldo disponível total negativo em $-33.499$ unidades, contra uma necessidade de reposição de $74.678$ unidades.
+* **Cobertura Restrita:** Apenas $67\%$ da demanda atual possui lastro imediato em estoque.
+* **Ausência de Excesso:** $0\%$ dos itens identificados acima do regulador máximo.
+* **Concentração Financeira:** $48\%$ dos itens representam $80\%$ do valor do estoque (Classe A). A maior parte desse valor está retida em itens em estado crítico.
+* **Dependência Logística:** As vendas com carga superam as vendas sem carga em aproximadamente $17\%$.
+* **Pressão Comercial:** A carteira de pedidos soma **R\$ 13,5 milhões**, superando em mais de $50\%$ o valor atual em estoque (**R\$ 8,9 milhões**).
 
 ---
 
-## 6. Estrutura de arquivos do repositório
+## Stack Técnica
+
+* **Power BI Desktop:** Modelagem de dados, desenvolvimento DAX e composição de visuais.
+* **Power Query (M):** Extração, transformação e limpeza de dados (ETL).
+* **DAX:** Inteligência de dados, cálculo de indicadores e Curva ABC dinâmica.
+* **Microsoft Excel:** Base operacional de entrada.
+* **PDF:** Documentação e visualização estática do relatório.
+
+---
+
+## Estrutura de Arquivos
+
+```text
+.
+├── DisponibilidadeEstoque.xlsx
+├── DashboardDeDisponibilidade&ReposicaoDeEstoque.pbix
+├── DashboardDeDisponibilidade&ReposicaoDeEstoque.pdf
+├── pagina0.png
+├── pagina1.png
+├── pagina2.png
+├── pagina3.png
+├── pagina4.png
+├── pagina5.png
+├── pagina6.png
+└── README.md
+```
+
+| Arquivo | Descrição |
+| :--- | :--- |
+| `DisponibilidadeEstoque.xlsx` | Base de dados operacional de entrada (100 itens, 18 colunas). |
+| `DashboardDeDisponibilidade...pbix` | Arquivo editável do Power BI com modelo, DAX e telas. |
+| `DashboardDeDisponibilidade...pdf` | Exportação do relatório em formato PDF estático. |
+| `pagina0.png` a `pagina6.png` | Capturas de tela das páginas do dashboard. |
+| `README.md` | Documentação técnica e analítica consolidada. |
+
+---
+
+## Competências Aplicadas
+
+* **Engenharia de Dados:** Extração, sanitização, tipagem e modelagem em Star Schema.
+* **Modelagem Analítica:** Criação de colunas calculadas, medidas DAX e classificação por Curva ABC.
+* **Storytelling Executivo:** Organização de perguntas de negócio em fluxo contínuo de visualização.
+* **Design Analítico:** Hierarquia visual, formatação condicional estratégica e navegabilidade UX.
+* **Gestão de Estoque:** Leitura de reguladores (mínimo/máximo), cobertura e priorização de ordens.
+* **Análise Crítica:** Identificação e correção de métricas distorcidas.
+* **Documentação Técnica:** Versionamento completo e publicação de manual estruturado.
+
+---
+
+## Como Reproduzir o Projeto
+
+1. Clone o repositório para o seu ambiente local:
+   ```bash
+   git clone https://github.com/SilvanioSG/seu-repositorio.git
+   ```
+2. Abra o arquivo `DashboardDeDisponibilidade&ReposicaoDeEstoque.pbix` no **Power BI Desktop**.
+3. Atualize a fonte de dados acessando:
+   `Transformar Dados` > `Configurações da Fonte de Dados` e aponte para a localização do arquivo `DisponibilidadeEstoque.xlsx`.
+4. Clique em **Atualizar** na aba *Página Inicial*.
+5. (Opcional) Publique no Power BI Service e ajuste os links de navegação.
+
+---
+
+## Considerações Finais
+
+O dashboard foi projetado para consumo progressivo: inicia com a visão executiva de alto nível, avança por análises táticas de cobertura, reposição, valorização e logística de cargas, e culmina na operacionalização granular do detalhamento. 
+
+A base analisada aponta um cenário de déficit severo com alta concentração de valor em itens críticos. A ferramenta entrega ao gestor a visibilidade necessária para priorizar recursos de compra e produção com base em dados acionáveis.
+
+---
+
+## Contato
+
+**Silvanio Gois** — *Gestor de Operações e Negócios Orientado a Dados*
+
+* **E-mail:** sg@silvaniogois.com.br
+* **Website:** [silvaniogois.com.br](https://www.silvaniogois.com.br)
+* **LinkedIn:** [linkedin.com/in/silvanio-gois](https://www.linkedin.com/in/silvanio-gois/)
+* **GitHub:** [github.com/SilvanioSG](https://github.com/SilvanioSG)
