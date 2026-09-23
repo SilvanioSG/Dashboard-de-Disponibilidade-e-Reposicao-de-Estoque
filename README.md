@@ -121,7 +121,7 @@ Capa de navegação com identidade visual do projeto, links diretos para todas a
 
 ### Página 6 — Detalhamento
 
-**Objetivo:** exploração granular e exportação operacional.
+**Objetivo:** exploração granular e operacional.
 
 **Análises entregues:**
 - Tabela curada com as colunas essenciais para ação: Item, Descrição, Status, Prioridade, Classe ABC, Estoque Físico, Estoque Disponível, Reguladores, Necessidade, Excesso, Cobertura, Valor de Estoque e Valor de Pedidos.
