@@ -213,6 +213,7 @@ A análise sobre os 100 itens diagnosticou um **déficit sistêmico de estoque**
 ├── pagina4.png
 ├── pagina5.png
 ├── pagina6.png
+├── SG_Site.png
 └── README.md
 ```
 
@@ -222,6 +223,7 @@ A análise sobre os 100 itens diagnosticou um **déficit sistêmico de estoque**
 | `DashboardDeDisponibilidade...pbix` | Arquivo editável do Power BI com modelo, DAX e telas. |
 | `DashboardDeDisponibilidade...pdf` | Exportação do relatório em formato PDF estático. |
 | `pagina0.png` a `pagina6.png` | Capturas de tela das páginas do dashboard. |
+| `SG_Site` | Imagem utilizada como logo da página de início. |
 | `README.md` | Documentação técnica e analítica consolidada. |
 
 ---
