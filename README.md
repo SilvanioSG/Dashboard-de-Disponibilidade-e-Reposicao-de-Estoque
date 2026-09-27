@@ -202,7 +202,7 @@ A análise sobre os 100 itens diagnosticou um **déficit sistêmico de estoque**
 ## Estrutura de Arquivos
 
 ```text
-.
+
 ├── DisponibilidadeEstoque.xlsx
 ├── DashboardDeDisponibilidade&ReposicaoDeEstoque.pbix
 ├── DashboardDeDisponibilidade&ReposicaoDeEstoque.pdf
